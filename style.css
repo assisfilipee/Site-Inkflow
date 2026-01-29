@@ -1,0 +1,869 @@
+/* =========================================================
+   Inkflow Tattoo Studio — style.css (Dark Theme / Visual First)
+   Fontes: Cinzel (títulos) + Inter (texto)
+   ========================================================= */
+
+/* ---------- Reset / Base ---------- */
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{ margin: 0; }
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+button{ font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible{ outline: 2px solid rgba(255,255,255,.85); outline-offset: 3px; }
+
+/* ---------- Variáveis ---------- */
+:root{
+  --bg: #0b0c0f;
+  --panel: #0f1116;
+  --panel-2: #0c0d11;
+  --ink: #f3f4f6;
+  --muted: rgba(243,244,246,.70);
+  --muted-2: rgba(243,244,246,.55);
+  --line: rgba(255,255,255,.10);
+  --shadow: 0 18px 50px rgba(0,0,0,.55);
+
+  --radius: 18px;
+  --radius-2: 26px;
+
+  --max: 1120px;
+  --pad: 22px;
+
+  --title: "Cinzel", serif;
+  --body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  --nav-h: 74px;
+}
+
+/* ---------- Tipografia / Base ---------- */
+body{
+  padding-top: var(--nav-h);
+  font-family: var(--body);
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(255,255,255,.04), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+h1,h2,h3{
+  font-family: var(--title);
+  letter-spacing: .5px;
+  margin: 0 0 10px;
+}
+
+h1{ font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.08; }
+h2{ font-size: clamp(1.6rem, 3.2vw, 2.2rem); line-height: 1.15; }
+h3{ font-size: 1.05rem; }
+
+p{ margin: 0 0 12px; color: var(--muted); }
+strong{ color: var(--ink); }
+.muted{ color: var(--muted-2); }
+
+/* ---------- Layout helpers ---------- */
+.container{
+  width: min(var(--max), 100% - (var(--pad) * 2));
+  margin-inline: auto;
+}
+
+.section{ padding: 45px 0; }
+
+.section__header{
+  margin-bottom: 22px;
+  max-width: 70ch;
+}
+.section__header p{ margin-top: 10px; }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Evita que título fique atrás da navbar ao usar âncoras */
+section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.header{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.header__inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+}
+
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav__menu{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__menu a{
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: rgba(0,0,0,.85);
+  transition: background .18s ease, color .18s ease, transform .15s ease;
+}
+
+.nav__menu a:hover{
+  background: #000;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.nav__logo{
+  display: grid;
+  place-items: center;
+  padding: 0 8px;
+}
+
+.nav__logo img{
+  height: 34px;
+  width: auto;
+  transition: filter .2s ease;
+}
+
+.nav__logo a:hover img{ filter: brightness(0) invert(1); }
+
+.nav__toggle{ display: none; }
+
+/* =========================================================
+   PATCH — MENU COM LOGO CENTRAL (INKFLOW)
+   ========================================================= */
+
+.nav{
+  display: flex;
+  justify-content: center;
+}
+
+.nav__menu{
+  display: grid;
+  grid-template-columns: repeat(3, auto) auto repeat(3, auto);
+  align-items: center;
+  gap: 18px;
+}
+
+/* Garante que o logo fique exatamente no centro */
+.nav__logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+
+/* Remove qualquer quebra estranha */
+.nav__menu li{
+  list-style: none;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   HERO — Cover
+   ========================================================= */
+.hero--cover{
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.hero--cover .hero__bg{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.72)),
+    url("./img/img-topo.png") center/cover no-repeat;
+  transform: scale(1.02);
+}
+
+.hero--cover .hero__bg::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(900px 520px at 50% 40%,
+    transparent 0%, rgba(0,0,0,.45) 70%, rgba(0,0,0,.65) 100%);
+}
+
+.hero--cover .hero__center{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 16px;
+  max-width: 860px;
+}
+
+.hero--cover .hero__logo{
+  width: min(520px, 85%);
+  height: auto;
+  margin: 0 auto 14px;
+  filter: drop-shadow(0 22px 60px rgba(0,0,0,.65));
+}
+
+.hero--cover .hero__headline{
+  margin: 0 0 10px;
+  letter-spacing: .6px;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+
+.hero--cover .hero__sub{
+  margin: 0 auto 16px;
+  max-width: 60ch;
+  color: rgba(255,255,255,.78);
+  font-size: 1.05rem;
+}
+
+.hero--cover .hero__whats{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
+  font-weight: 800;
+  letter-spacing: .2px;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.hero--cover .hero__whats:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.12);
+}
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+.about__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.about__media{
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 22px 70px rgba(0,0,0,.55);
+  background: rgba(255,255,255,.02);
+  animation: aboutFloat 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about__media img{
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Keyframes “flutuando” */
+@keyframes aboutFloat{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-10px); }
+  100%{ transform: translateY(0); }
+}
+
+/* =========================================================
+   ESTILOS
+   ========================================================= */
+.stylesHeader{ margin-bottom: 18px; }
+
+.stylesGrid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.styleCard{
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 22px 70px rgba(0,0,0,.55);
+  background: rgba(255,255,255,.02);
+  min-height: 280px;
+  cursor: zoom-in;
+}
+
+.styleCard img{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(1.02);
+  transform: scale(1);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.styleOverlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 22px;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,.35) 0%,
+    rgba(0,0,0,.55) 55%,
+    rgba(0,0,0,.70) 100%);
+  pointer-events: none;
+}
+
+.styleOverlay h3{
+  margin: 0 0 8px;
+  letter-spacing: .6px;
+  color: rgba(255,255,255,.95);
+  font-size: 1.35rem;
+}
+
+.styleOverlay p{
+  font-size: .8rem;
+  text-align: left;
+  margin: 0;
+  max-width: 60ch;
+  color: rgba(255,255,255,.78);
+}
+
+.styleCard:hover img{
+  transform: scale(1.05);
+  filter: contrast(1.08) saturate(1.05);
+}
+
+.stylesCta{
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/* =========================================================
+   ARTISTAS
+   ========================================================= */
+.artists{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 22px;
+}
+
+.artist{
+  display: grid;
+  grid-template-rows: 220px 1fr;
+}
+
+.artist__photo{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: contrast(1.06) saturate(1.02);
+}
+
+.artist__info{ padding: 16px; }
+
+.artist__spec{
+  color: rgba(243,244,246,.62);
+  font-size: .95rem;
+  margin-bottom: 10px;
+}
+
+.link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  color: rgba(243,244,246,.88);
+  transition: transform .15s ease, background .15s ease;
+}
+.link:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.06);
+}
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 6px;
+}
+
+.gallery__item{
+  border-radius: 0;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+
+  padding: 0;
+  cursor: pointer;
+
+  transition:
+    transform .15s ease,
+    border-color .15s ease,
+    box-shadow .15s ease;
+}
+
+.gallery__item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 26px 70px rgba(0,0,0,.65);
+}
+
+.gallery__item img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  filter: contrast(1.06) saturate(1.02);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.gallery__item:hover img{
+  transform: scale(1.04);
+  filter: contrast(1.1) saturate(1.08);
+}
+
+/* =========================================================
+   LIGHTBOX (único)
+   ========================================================= */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.lightbox.is-open{ display: block; }
+
+.lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox__content{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.lightbox__figure{
+  position: relative;
+  margin: 0;
+  width: min(980px, 92vw);
+  height: min(76vh, 680px);
+  background: rgba(0,0,0,.25);
+  box-shadow: 0 30px 100px rgba(0,0,0,.7);
+  overflow: hidden;
+}
+
+.lightbox__img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox__caption{
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.45);
+  color: rgba(255,255,255,.85);
+  font-size: .95rem;
+}
+
+.lightbox__close{
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 26px;
+}
+
+.lightbox__nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 26px;
+}
+
+.lightbox__nav--prev{ left: 22px; }
+.lightbox__nav--next{ right: 22px; }
+
+.lightbox__close:hover,
+.lightbox__nav:hover{ background: rgba(255,255,255,.12); }
+
+/* =========================================================
+   DEPOIMENTOS (Google + Textos) — sem slider/sem imagens
+   ========================================================= */
+
+.reviewsBar{
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.reviewsBar__left{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.reviewsBar__score{
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.reviewsBar__num{
+  font-family: var(--title);
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.reviewsBar__stars{
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.85);
+  font-size: 1rem;
+}
+
+.reviewsBar__meta{
+  display: grid;
+  gap: 4px;
+}
+
+.reviewsBar__actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Grid de cards */
+.reviewsGrid{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+
+.reviewCard{
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  min-height: 170px;
+}
+
+.reviewCard__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reviewCard__stars{
+  letter-spacing: 2px;
+  color: rgba(219, 182, 0, 0.85);
+  font-size: .95rem;
+}
+
+.reviewCard__text{
+  color: rgba(243,244,246,.78);
+  margin: 0;
+}
+
+.reviewCard__source{
+  font-size: .9rem;
+}
+
+/* Responsivo */
+@media (max-width: 980px){
+  .reviewsBar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reviewsBar__actions{
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .reviewsGrid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   CONTATO (cards + localização em uma única seção)
+   ========================================================= */
+
+.contact__grid{
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Cards de contato */
+.contact__cards{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.contact__card{
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact__card h3{
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.contact__card p{
+  margin: 0;
+}
+
+/* Mapa */
+.map{
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.map iframe{
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border: 0;
+  display: block;
+  /*filter: grayscale(1) contrast(1.05) brightness(.9);*/
+}
+
+/* FORÇA 1 coluna SEMPRE (ganha de regras antigas) */
+#contato .contact__cards{
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+
+.footer__link{
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer__link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: .4;
+  transition: opacity .2s ease;
+}
+
+.footer__link:hover::after{
+  opacity: 1;
+}
+
+/* =========================================================
+   LOCALIZAÇÃO — layout travado (Header em cima / Infos esquerda / Mapa direita)
+   Cards em 1 coluna SEMPRE
+   ========================================================= */
+
+#localizacao .contact__grid{
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Header ocupa as duas colunas */
+#localizacao .section__header{
+  grid-column: 1 / -1;
+  max-width: 520px;
+}
+
+/* Infos (cards) sempre na coluna esquerda e 1 coluna */
+#localizacao .contact__cards{
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna */
+  gap: 12px;
+}
+
+/* Mapa sempre na coluna direita */
+#localizacao .map{
+  grid-column: 2 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+/* iframe do mapa responsivo */
+#localizacao .map iframe{
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+  display: block;
+}
+
+/* Mobile: empilha tudo */
+@media (max-width: 980px){
+  #localizacao .contact__grid{
+    grid-template-columns: 1fr;
+  }
+
+  #localizacao .contact__cards,
+  #localizacao .map{
+    grid-column: 1 / -1;
+  }
+
+  #localizacao .map iframe{
+    min-height: 320px;
+  }
+}
+
+
+
+/* =========================================================
+   CTA FINAL
+   ========================================================= */
+.cta-final{ padding-top: 40px; }
+
+.cta-final__inner{
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(900px 400px at 20% 0%, rgba(255,255,255,.10), transparent 60%),
+    rgba(255,255,255,.03);
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.cta-final__inner h2{ margin-bottom: 10px; }
+.cta-final__inner p{ max-width: 70ch; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  padding: 26px 0 40px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footer__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: rgba(243,244,246,.60);
+}
+
+/* =========================================================
+   WHATSAPP FLUTUANTE
+   ========================================================= */
+.whatsapp-float{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1200;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.92);
+  color: #000;
+  font-weight: 900;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(255,255,255,.95);
+  box-shadow: 0 18px 40px rgba(0,0,0,.55);
+  transition: transform .15s ease;
+}
+.whatsapp-float:hover{ transform: translateY(-2px); }
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 980px){
+  .about__grid{ grid-template-columns: 1fr; }
+  .about__media img{ height: 340px; }
+
+  .stylesGrid{ grid-template-columns: 1fr; }
+  .styleCard img{ height: 320px; }
+
+  .artists{ grid-template-columns: 1fr; }
+  .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .location__grid{ grid-template-columns: 1fr; }
+  .contact__grid{ grid-template-columns: 1fr; }
+  .contact__cards{ grid-template-columns: 1fr; }
+
+  .nav__menu{ flex-wrap: wrap; }
+}
+
+@media (max-width: 560px){
+  .section{ padding: 56px 0; }
+
+  .header__inner{ padding: 12px 0; }
+
+  .gallery{ grid-template-columns: 1fr; }
+  .gallery__item img{ height: 240px; }
+}

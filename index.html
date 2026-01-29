@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Inkflow Tattoo Studio</title>
+    <meta name="description"
+        content="Inkflow Tattoo Studio — estúdio de tatuagem com foco em arte autoral, blackwork, realismo e fine line. Agende pelo WhatsApp e veja nosso portfólio." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.png" />
+</head>
+
+<body>
+
+    <header class="header" aria-label="Topo do site">
+        <div class="container header__inner">
+
+            <nav class="nav" aria-label="Navegação principal">
+                <button class="nav__toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="navMenu">
+                    <span aria-hidden="true">Menu</span>
+                </button>
+
+                <ul class="nav__menu" id="navMenu">
+                    <!-- LADO ESQUERDO -->
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#estilos">Estilos</a></li>
+                    <li><a href="#artistas">Artistas</a></li>
+
+                    <!-- LOGO CENTRAL -->
+                    <li class="nav__logo">
+                        <a href="#topo" aria-label="Ir para o topo">
+                            <img src="./img/logo-baixa.png" alt="Inkflow Tattoo Studio">
+                        </a>
+                    </li>
+
+                    <!-- LADO DIREITO -->
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- HERO -->
+        <section class="hero hero--cover" id="topo" aria-label="Apresentação">
+            <div class="hero__bg" aria-hidden="true"></div>
+
+            <div class="container hero__center">
+                <img class="hero__logo" src="./img/logo-alta-branco.png" alt="Inkflow Tattoo Studio" />
+
+                <h1 class="hero__headline">Bem-vindo à Inkflow Tattoo Studio</h1>
+
+                <p class="hero__sub">
+                    Um espaço onde a arte flui na pele.<br>Tatuagem • Piercing • Guest Artists
+                </p>
+
+                <a class="hero__whats"
+                    href="https://wa.me/5548991330140?text=Ol%C3%A1!%20Quero%20agendar%20uma%20tatuagem%20na%20Inkflow."
+                    target="_blank" rel="noopener">
+                    Agendar no WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="section" id="sobre" aria-label="Sobre o estúdio">
+            <div class="container about__grid">
+                <div class="about__text">
+                    <header class="section__header">
+                        <h2>Sobre o estúdio</h2>
+                        <p>
+                            A Ink In Flow é um estúdio de tatuagem e piercing onde a arte flui diretamente para a pele.
+                            Trabalhamos com criatividade, técnica e respeito à individualidade de cada cliente,
+                            transformando ideias em tatuagens únicas e cheias de significado.
+                        </p>
+                        <p>
+                            Nosso espaço é colaborativo, aberto a guest artists, e pensado para oferecer uma experiência
+                            segura, confortável e autêntica — do primeiro contato ao resultado final. Aqui, cada traço
+                            conta uma história.
+                        </p>
+                        <p>📍 Kobrasol, São José</p>
+                    </header>
+                </div>
+
+                <figure class="about__media" aria-label="Foto do estúdio">
+                    <img src="./img/parede-inkflow.png" alt="Foto do estúdio Inkflow Tattoo Studio" loading="lazy" />
+                </figure>
+            </div>
+        </section>
+
+        <!-- ESTILOS -->
+        <section class="section" id="estilos" aria-label="Estilos">
+            <div class="container">
+
+                <header class="section__header stylesHeader">
+                    <h2>Estilos</h2>
+                    <p>Escolha o estilo que combina com sua ideia — a gente transforma em arte.</p>
+                </header>
+
+                <div class="stylesGrid" data-lightbox-group="estilos">
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-01.jpg" alt="Tatuagem estilo realismo" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Geométrico + Blackwork Ornamental</h3>
+                            <p>
+                                ► Uso intenso de formas geométricas repetitivas.<br>
+                                ► Linhas sólidas e áreas de preto bem definidas.<br>
+                                ► Composição que acompanha a anatomia da perna.<br>
+                                ► Influência de mandalas e padrões sagrados.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-02.jpg" alt="Tatuagem estilo blackwork" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Blackwork + Linework</h3>
+                            <p>
+                                ► Linhas longas, limpas e simétricas.<br>
+                                ► Design abstrato e conceitual.<br>
+                                ► Forte preocupação com fluxo corporal.<br>
+                                ► Pouco preenchimento, impacto pelo desenho.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-03.jpg" alt="Tatuagem estilo fine line" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Pontilhismo + Mandala + Geométrico</h3>
+                            <p>
+                                ► Mandalas bem estruturadas.<br>
+                                ► Uso de dotwork para textura e profundidade.<br>
+                                ► Simetria precisa.<br>
+                                ► Visual espiritual / ornamental.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-04.jpg" alt="Tatuagem estilo lettering" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Blackwork + Tribal</h3>
+                            <p>
+                                ► Grandes áreas preenchidas em preto.<br>
+                                ► Padrões repetitivos e angulares.<br>
+                                ► Influência tribal, mas com leitura moderna.<br>
+                                ► Uso de dotwork para transições suaves.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-05.jpg" alt="Tatuagem estilo geométrico" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Blackwork + Ornamental</h3>
+                            <p>
+                                ► Geometria forte e simétrica no peito.<br>
+                                ► Blocos sólidos de preto combinados com dotwork.<br>
+                                ► Design pensado para impacto visual frontal.<br>
+                                ► Referência em arquitetura sagrada e padrões islâmicos.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="styleCard">
+                        <img src="./img/estilo-06.jpg" alt="Tatuagem estilo ornamental" loading="lazy" />
+                        <div class="styleOverlay">
+                            <h3>Realismo Preto e Cinza</h3>
+                            <p>
+                                ► Alto nível de detalhe.<br>
+                                ► Trabalho intenso de sombras.<br>
+                                ► Expressão facial forte e dramática.<br>
+                                ► Aparência quase fotográfica.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="stylesCta">
+                    <a class="btn btn--primary"
+                        href="https://wa.me/5548991330140?text=Ol%C3%A1!%20Quero%20agendar%20uma%20tatuagem%20na%20Inkflow."
+                        target="_blank" rel="noopener">
+                        Agendar no WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ARTISTAS -->
+        <section class="section" id="artistas" aria-label="Artistas">
+            <div class="container">
+
+                <header class="section__header">
+                    <h2>Artistas</h2>
+                    <p>Conheça quem vai transformar sua ideia em arte.</p>
+                </header>
+
+                <div class="artists">
+
+                    <article class="artist card">
+                        <img class="artist__photo" src="./img/ink-ariane.png" alt="Artista 1 da Inkflow"
+                            loading="lazy" />
+                        <div class="artist__info">
+                            <h3>Ariane</h3>
+                            <p class="artist__spec">Especialidade: Realismo Dark</p>
+                            <a class="link" href="https://www.instagram.com/inkariane/" target="_blank" rel="noopener">
+                                Instagram da Artista
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="artist card">
+                        <img class="artist__photo" src="./img/ink-matheus.png" alt="Artista 2 da Inkflow"
+                            loading="lazy" />
+                        <div class="artist__info">
+                            <h3>Matheus Lunelli</h3>
+                            <p class="artist__spec">Especialidade: Dotwork | Geometria | Tatuagens Autorais</p>
+                            <a class="link" href="https://www.instagram.com/matheussink/" target="_blank"
+                                rel="noopener">
+                                Instagram do Artista
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="artist card">
+                        <img class="artist__photo" src="./img/ink-rafa.png" alt="Artista 3 da Inkflow" loading="lazy" />
+                        <div class="artist__info">
+                            <h3>Rafael Born</h3>
+                            <p class="artist__spec">Especialidade: Tattoo Geometric</p>
+                            <a class="link" href="https://www.instagram.com/rafa_born/" target="_blank" rel="noopener">
+                                Instagram do Artista
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="artist card">
+                        <img class="artist__photo" src="./img/ink-rood.png" alt="Artista 3 da Inkflow" loading="lazy" />
+                        <div class="artist__info">
+                            <h3>Rodrigo</h3>
+                            <p class="artist__spec">Especialidade: Tattoo geométrica | Blackwork</p>
+                            <a class="link" href="https://www.instagram.com/roodtattooart/" target="_blank"
+                                rel="noopener">
+                                Instagram do Artista
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM -->
+        <section class="section" id="instagram" aria-label="Instagram da Loja">
+            <div class="container">
+
+                <header class="section__header">
+                    <h2>Instagram</h2>
+                    <p>Alguns dos nossos trabalhos.</p>
+                </header>
+
+                <div class="gallery" data-lightbox-group="instagram" role="list">
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-01.png"
+                        data-instagram="https://www.instagram.com/p/DMQQXW-MKid/"
+                        aria-label="Abrir imagem do Instagram 1">
+                        <img src="./img/insta-01.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-02.png"
+                        data-instagram="https://www.instagram.com/p/DMQQLMCssgg/"
+                        aria-label="Abrir imagem do Instagram 2">
+                        <img src="./img/insta-02.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-03.png"
+                        data-instagram="https://www.instagram.com/p/DMKBxGjM2-3/?img_index=1"
+                        aria-label="Abrir imagem do Instagram 3">
+                        <img src="./img/insta-03.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-04.png"
+                        data-instagram="https://www.instagram.com/p/DMI40bgyuxw/"
+                        aria-label="Abrir imagem do Instagram 4">
+                        <img src="./img/insta-04.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-05.png"
+                        data-instagram="https://www.instagram.com/p/DMKBosVMYoH/?img_index=1"
+                        aria-label="Abrir imagem do Instagram 5">
+                        <img src="./img/insta-05.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-06.png"
+                        data-instagram="https://www.instagram.com/p/DMI-WVHSC1L/"
+                        aria-label="Abrir imagem do Instagram 6">
+                        <img src="./img/insta-06.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-07.png"
+                        data-instagram="https://www.instagram.com/p/DMI976YyZN3/"
+                        aria-label="Abrir imagem do Instagram 7">
+                        <img src="./img/insta-07.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                    <button class="gallery__item" type="button" role="listitem" data-full="./img/insta-08.png"
+                        data-instagram="https://www.instagram.com/p/DMI48n7y76W/"
+                        aria-label="Abrir imagem do Instagram 8">
+                        <img src="./img/insta-08.png" alt="Imagem do instagram do Studio Inkflow" loading="lazy" />
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS (Google + Textos) -->
+        <section class="section" id="depoimentos" aria-label="Depoimentos">
+            <div class="container">
+
+                <header class="section__header">
+                    <h2>Depoimentos</h2>
+                    <p>Prova social real. Avaliações do Google + relatos rápidos de clientes.</p>
+                </header>
+
+                <!-- Google Rating -->
+                <div class="reviewsBar card" role="region" aria-label="Avaliações no Google">
+                    <div class="reviewsBar__left">
+                        <div class="reviewsBar__score">
+                            <span class="reviewsBar__num" aria-label="Nota média">5,0</span>
+                            <span class="reviewsBar__stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                        <div class="reviewsBar__meta">
+                            <strong>Avaliações no Google</strong>
+                            <span class="muted">Baseado em <strong>+100</strong> avaliações</span>
+                        </div>
+                    </div>
+
+                    <div class="reviewsBar__actions">
+                        <a class="btn btn--primary"
+                            href="https://www.google.com/search?q=inkflow+tatoo+studio&rlz=1C1VDKB_pt-PTBR1164BR1164&oq=inkflow+tatoo+studio&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg4IARAjGBMYJxiABBiKBTIGCAIQRRhAMgcIAxAAGIAEMgwIBBAAGEMYgAQYigUyDAgFEC4YQxiABBiKBTIHCAYQABiABDIHCAcQABiABNIBCDE5MDZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x952737fb98b0bf17:0xc93aebc436bc37e8,3,,,,"
+                            target="_blank" rel="noopener">
+                            Deixar avaliação
+                        </a>
+                        <a class="btn btn--ghost" href="https://share.google/QV9nnpCY2xLfcHkSu" target="_blank"
+                            rel="noopener">
+                            Ver no Google
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Depoimentos em texto (cards) -->
+                <div class="reviewsGrid" role="list" aria-label="Depoimentos de clientes">
+
+                    <article class="reviewCard card" role="listitem">
+                        <div class="reviewCard__top">
+                            <strong>Leandro Clasen</strong>
+                            <span class="reviewCard__stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p class="reviewCard__text">
+                            Muito bom tatuador, super atencioso e fez outros trampos. Super indico.
+                        </p>
+                        <span class="reviewCard__source muted">Google • há 2 meses</span>
+                    </article>
+
+                    <article class="reviewCard card" role="listitem">
+                        <div class="reviewCard__top">
+                            <strong>Mendes Pedrosa</strong>
+                            <span class="reviewCard__stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p class="reviewCard__text">
+                            Atendimento top, preço justo, ambiente impecável.
+                        </p>
+                        <span class="reviewCard__source muted">Google • há 2 meses</span>
+                    </article>
+
+                    <article class="reviewCard card" role="listitem">
+                        <div class="reviewCard__top">
+                            <strong>Thiago Amaral</strong>
+                            <span class="reviewCard__stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p class="reviewCard__text">
+                            Ambos profissionais do local são muito dedicados e expressivamente idôneos. Ari restaurou
+                            uma tatuagem minha de mais de 15 anos e deixou ela do jeito desejado, gratidão pelo
+                            excelente trabalho e dedicação. Retornarei com toda certeza!
+                        </p>
+                        <span class="reviewCard__source muted">Google • há 3 meses</span>
+                    </article>
+
+                    <article class="reviewCard card" role="listitem">
+                        <div class="reviewCard__top">
+                            <strong>Beatriz Martins</strong>
+                            <span class="reviewCard__stars" aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p class="reviewCard__text">
+                            Ari é sensacional! Atendimento de primeira, com muita atenção, carinho e dedicação.
+                        </p>
+                        <span class="reviewCard__source muted">Google • há 4 meses</span>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- LOCALIZAÇÃO -->
+        <section class="section" id="localizacao" aria-label="Localização">
+            <div class="container contact__grid">
+
+                <!-- Cabeçalho -->
+                <header class="section__header">
+                    <h2>Localização</h2>
+                    <p>Veja onde estamos e planeje sua visita ao estúdio.</p>
+                </header>
+
+                <!-- Coluna esquerda: Informações -->
+                <div class="contact__cards">
+
+                    <article class="card contact__card">
+                        <h3>Horário</h3>
+                        <p><strong>Seg–Sáb</strong> • 9:00 – 20:30</p>
+                        <p class="muted">Atendimento com hora marcada.</p>
+                    </article>
+
+                    <article class="card contact__card">
+                        <h3>Endereço</h3>
+                        <p>
+                            <strong>Kobrasol / São José - SC</strong><br>
+                            Av. Lédio João Martins, 554<br>
+                            <span class="muted">Sala 107</span>
+                        </p>
+                    </article>
+
+                </div>
+
+                <!-- Coluna direita: Mapa -->
+                <div class="map card" aria-label="Mapa do estúdio">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.8947026456567!2d-48.61656492453675!3d-27.59679397624614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273620d45583f7%3A0xb81a7b9cb9d52f12!2sAv.%20L%C3%A9dio%20Jo%C3%A3o%20Martins%2C%20554%20-%20Sala%20107%20-%20Kobrasol%2C%20S%C3%A3o%20Jos%C3%A9%20-%20SC%2C%2088101-100!5e0!3m2!1spt-PT!2sbr!4v1769656999578!5m2!1spt-PT!2sbr"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- CTA Final -->
+        <section class="section cta-final" aria-label="Chamada final">
+            <div class="container cta-final__inner">
+                <h2>Pronto pra fechar sua próxima tattoo?</h2>
+                <p class="muted">Manda sua ideia (ou referência) e a gente te guia no melhor tamanho e posicionamento.
+                </p>
+                <a class="btn btn--primary"
+                    href="https://wa.me/5548991330140?text=Ol%C3%A1!%20Quero%20agendar%20uma%20tatuagem%20na%20Inkflow."
+                    target="_blank" rel="noopener">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer" aria-label="Rodapé">
+        <div class="container footer__inner">
+            <span>© <span id="year">2026</span> Inkflow Tattoo Studio — Todos os direitos reservados.</span>
+            <span class="muted">
+                Desenvolvido por
+                <a href="https://instagram.com/assisfilipee" target="_blank" rel="noopener" class="footer__link">
+                    Filipe Assis
+                </a>
+            </span>
+        </div>
+    </footer>
+
+    <a class="whatsapp-float"
+        href="https://wa.me/5548991330140?text=Ol%C3%A1!%20Quero%20agendar%20uma%20tatuagem%20na%20Inkflow."
+        target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+        WhatsApp
+    </a>
+
+    <!-- Lightbox (único) -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__backdrop" data-lb-close></div>
+
+        <div class="lightbox__content" role="dialog" aria-modal="true" aria-label="Visualização de imagem">
+            <button class="lightbox__close" type="button" aria-label="Fechar" data-lb-close>×</button>
+
+            <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Anterior"
+                data-lb-prev>‹</button>
+            <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Próxima" data-lb-next>›</button>
+
+            <figure class="lightbox__figure">
+                <img class="lightbox__img" id="lightboxImg" alt="" />
+                <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
