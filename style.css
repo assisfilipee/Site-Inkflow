@@ -3,7 +3,10 @@
    Fontes: Cinzel (títulos) + Inter (texto)
    ========================================================= */
 
-/* ---------- Reset / Base ---------- */
+
+/* =========================================================
+   01) RESET / BASE
+   ========================================================= */
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 body{ margin: 0; }
@@ -12,7 +15,13 @@ a{ color: inherit; text-decoration: none; }
 button{ font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 :focus-visible{ outline: 2px solid rgba(255,255,255,.85); outline-offset: 3px; }
 
-/* ---------- Variáveis ---------- */
+/* ✅ Anti scroll horizontal (global) */
+html, body{ max-width: 100%; overflow-x: hidden; }
+
+
+/* =========================================================
+   02) VARIÁVEIS
+   ========================================================= */
 :root{
   --bg: #0b0c0f;
   --panel: #0f1116;
@@ -35,7 +44,10 @@ button{ font: inherit; color: inherit; background: none; border: 0; cursor: poin
   --nav-h: 74px;
 }
 
-/* ---------- Tipografia / Base ---------- */
+
+/* =========================================================
+   03) TIPOGRAFIA / BASE
+   ========================================================= */
 body{
   padding-top: var(--nav-h);
   font-family: var(--body);
@@ -61,7 +73,17 @@ p{ margin: 0 0 12px; color: var(--muted); }
 strong{ color: var(--ink); }
 .muted{ color: var(--muted-2); }
 
-/* ---------- Layout helpers ---------- */
+/* ✅ margem interna para textos não colarem nas bordas
+   (sem mudar desktop: só melhora comportamento geral) */
+.section__header,
+.hero--cover .hero__center{
+  padding-inline: clamp(0px, 1vw, 0px); /* base neutra */
+}
+
+
+/* =========================================================
+   04) LAYOUT HELPERS
+   ========================================================= */
 .container{
   width: min(var(--max), 100% - (var(--pad) * 2));
   margin-inline: auto;
@@ -86,8 +108,9 @@ strong{ color: var(--ink); }
 /* Evita que título fique atrás da navbar ao usar âncoras */
 section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 
+
 /* =========================================================
-   HEADER / NAV
+   05) HEADER / NAV
    ========================================================= */
 .header{
   position: fixed;
@@ -112,14 +135,22 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   justify-content: center;
 }
 
+/* MENU COM LOGO CENTRAL (INKFLOW) — desktop igual */
 .nav__menu{
   list-style: none;
-  display: flex;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, auto) auto repeat(3, auto);
   align-items: center;
   justify-content: center;
   gap: 18px;
-  padding: 0;
-  margin: 0;
+}
+
+.nav__menu li{
+  list-style: none;
+  white-space: nowrap;
 }
 
 .nav__menu a{
@@ -136,9 +167,10 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 }
 
 .nav__logo{
-  display: grid;
-  place-items: center;
-  padding: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
 }
 
 .nav__logo img{
@@ -151,38 +183,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 
 .nav__toggle{ display: none; }
 
-/* =========================================================
-   PATCH — MENU COM LOGO CENTRAL (INKFLOW)
-   ========================================================= */
-
-.nav{
-  display: flex;
-  justify-content: center;
-}
-
-.nav__menu{
-  display: grid;
-  grid-template-columns: repeat(3, auto) auto repeat(3, auto);
-  align-items: center;
-  gap: 18px;
-}
-
-/* Garante que o logo fique exatamente no centro */
-.nav__logo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 12px;
-}
-
-/* Remove qualquer quebra estranha */
-.nav__menu li{
-  list-style: none;
-  white-space: nowrap;
-}
 
 /* =========================================================
-   HERO — Cover
+   06) HERO — Cover
    ========================================================= */
 .hero--cover{
   position: relative;
@@ -256,8 +259,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   background: rgba(255,255,255,.12);
 }
 
+
 /* =========================================================
-   SOBRE
+   07) SOBRE
    ========================================================= */
 .about__grid{
   display: grid;
@@ -290,8 +294,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   100%{ transform: translateY(0); }
 }
 
+
 /* =========================================================
-   ESTILOS
+   08) ESTILOS
    ========================================================= */
 .stylesHeader{ margin-bottom: 18px; }
 
@@ -359,8 +364,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   margin-top: 22px;
 }
 
+
 /* =========================================================
-   ARTISTAS
+   09) ARTISTAS
    ========================================================= */
 .artists{
   display: grid;
@@ -403,8 +409,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   background: rgba(255,255,255,.06);
 }
 
+
 /* =========================================================
-   INSTAGRAM
+   10) INSTAGRAM
    ========================================================= */
 .gallery{
   display: grid;
@@ -449,8 +456,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   filter: contrast(1.1) saturate(1.08);
 }
 
+
 /* =========================================================
-   LIGHTBOX (único)
+   11) LIGHTBOX (único)
    ========================================================= */
 .lightbox{
   position: fixed;
@@ -536,10 +544,10 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 .lightbox__close:hover,
 .lightbox__nav:hover{ background: rgba(255,255,255,.12); }
 
-/* =========================================================
-   DEPOIMENTOS (Google + Textos) — sem slider/sem imagens
-   ========================================================= */
 
+/* =========================================================
+   12) DEPOIMENTOS (Google + Textos) — sem slider/sem imagens
+   ========================================================= */
 .reviewsBar{
   padding: 18px;
   display: flex;
@@ -622,27 +630,10 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   font-size: .9rem;
 }
 
-/* Responsivo */
-@media (max-width: 980px){
-  .reviewsBar{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .reviewsBar__actions{
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .reviewsGrid{
-    grid-template-columns: 1fr;
-  }
-}
 
 /* =========================================================
-   CONTATO (cards + localização em uma única seção)
+   13) CONTATO (cards + localização em uma única seção)
    ========================================================= */
-
 .contact__grid{
   display: grid;
   grid-template-columns: .9fr 1.1fr;
@@ -719,11 +710,11 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   opacity: 1;
 }
 
+
 /* =========================================================
-   LOCALIZAÇÃO — layout travado (Header em cima / Infos esquerda / Mapa direita)
+   14) LOCALIZAÇÃO — layout travado (Header em cima / Infos esquerda / Mapa direita)
    Cards em 1 coluna SEMPRE
    ========================================================= */
-
 #localizacao .contact__grid{
   display: grid;
   grid-template-columns: .9fr 1.1fr;
@@ -741,7 +732,7 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 #localizacao .contact__cards{
   grid-column: 1 / 2;
   display: grid;
-  grid-template-columns: 1fr; /* 1 coluna */
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -760,26 +751,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   display: block;
 }
 
-/* Mobile: empilha tudo */
-@media (max-width: 980px){
-  #localizacao .contact__grid{
-    grid-template-columns: 1fr;
-  }
-
-  #localizacao .contact__cards,
-  #localizacao .map{
-    grid-column: 1 / -1;
-  }
-
-  #localizacao .map iframe{
-    min-height: 320px;
-  }
-}
-
-
 
 /* =========================================================
-   CTA FINAL
+   15) CTA FINAL
    ========================================================= */
 .cta-final{ padding-top: 40px; }
 
@@ -796,8 +770,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 .cta-final__inner h2{ margin-bottom: 10px; }
 .cta-final__inner p{ max-width: 70ch; }
 
+
 /* =========================================================
-   FOOTER
+   16) FOOTER
    ========================================================= */
 .footer{
   padding: 26px 0 40px;
@@ -813,8 +788,9 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
   color: rgba(243,244,246,.60);
 }
 
+
 /* =========================================================
-   WHATSAPP FLUTUANTE
+   17) WHATSAPP FLUTUANTE
    ========================================================= */
 .whatsapp-float{
   position: fixed;
@@ -840,30 +816,212 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 }
 .whatsapp-float:hover{ transform: translateY(-2px); }
 
+
 /* =========================================================
-   RESPONSIVO
+   18) RESPONSIVO (Breakpoints solicitados)
+   - Mantém desktop como está (base)
+   - Ajusta tablet/mobile sem scroll horizontal
+   - Mais respiro nas bordas (padding)
+   - Botões/taps com área confortável
    ========================================================= */
-@media (max-width: 980px){
+
+/* =========================
+   TABLET: 576px → 991.98px
+   ========================= */
+@media (min-width: 576px) and (max-width: 991.98px){
+
+  /* ✅ mais margem/padding geral sem afetar desktop */
+  :root{ --pad: 18px; }
+
+  .section{ padding: 44px 0; }
+
+  /* HERO: evita “pulo” em browsers mobile/tablet */
+  .hero--cover{
+    height: 100svh;
+    min-height: 100svh;
+    padding: 34px 0;
+  }
+
+  /* NAV: reduz gaps e permite quebra sem estourar largura */
+  .nav__menu{
+    gap: 12px;
+  }
+  .nav__menu a{
+    padding: 10px 12px;
+  }
+
+  /* GRIDS: ajusta sem quebrar design */
   .about__grid{ grid-template-columns: 1fr; }
-  .about__media img{ height: 340px; }
+  .about__media img{ height: 360px; }
 
   .stylesGrid{ grid-template-columns: 1fr; }
-  .styleCard img{ height: 320px; }
+  .styleCard img{ height: 340px; }
 
-  .artists{ grid-template-columns: 1fr; }
+  .artists{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .location__grid{ grid-template-columns: 1fr; }
-  .contact__grid{ grid-template-columns: 1fr; }
-  .contact__cards{ grid-template-columns: 1fr; }
 
-  .nav__menu{ flex-wrap: wrap; }
+  .reviewsBar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reviewsBar__actions{
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .reviewsGrid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+  .contact__grid{ grid-template-columns: 1fr; }
+  .map iframe{ min-height: 340px; }
+
+  /* Localização: empilha */
+  #localizacao .contact__grid{ grid-template-columns: 1fr; }
+  #localizacao .contact__cards,
+  #localizacao .map{ grid-column: 1 / -1; }
+  #localizacao .map iframe{ min-height: 320px; }
+
+  /* Lightbox: botões um pouco mais próximos nas bordas */
+  .lightbox__nav--prev{ left: 14px; }
+  .lightbox__nav--next{ right: 14px; }
+  .lightbox__close{ top: 14px; right: 14px; }
 }
 
-@media (max-width: 560px){
-  .section{ padding: 56px 0; }
 
+/* =========================
+   MOBILE: até 575.98px
+   ========================= */
+@media (max-width: 575.98px){
+
+  /* ✅ aumenta respiro lateral, evita conteúdo colado */
+  :root{
+    --pad: 16px;
+    --nav-h: 70px; /* leve ajuste só pra caber melhor */
+  }
+
+  .section{ padding: 52px 0; }
+
+  /* HEADER: mantém altura confortável */
   .header__inner{ padding: 12px 0; }
 
+  /* ✅ NAV: evita overflow do grid (logo em cima, menu embaixo) */
+  .nav__menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-inline: 8px;
+  }
+
+  /* coloca o logo em uma linha própria e centralizado */
+  .nav__logo{
+    order: -1;
+    width: 100%;
+    justify-content: center;
+    padding: 6px 0 2px;
+  }
+
+  /* ✅ alvos de toque melhores */
+  .nav__menu a{
+    padding: 12px 12px; /* >= ~44px de altura visual */
+    border-radius: 12px;
+    font-size: .95rem;
+  }
+
+  /* HERO: usa viewport “safe” no mobile */
+  .hero--cover{
+    height: 100svh;
+    min-height: 100svh;
+    padding: 26px 0;
+  }
+
+  .hero--cover .hero__center{
+    padding: 14px;
+  }
+
+  .hero--cover .hero__sub{
+    font-size: 1rem;
+    padding-inline: 6px; /* ✅ texto não cola */
+  }
+
+  /* SOBRE */
+  .about__grid{ grid-template-columns: 1fr; }
+  .about__media{ animation: none; } /* evita “jump” em mobiles fracos */
+  .about__media img{ height: 320px; }
+
+  /* ESTILOS */
+  .stylesGrid{ grid-template-columns: 1fr; }
+  .styleCard{ min-height: 240px; }
+  .styleCard img{ height: 300px; }
+  .styleOverlay{ padding: 18px; }
+  .styleOverlay p{ text-align: left; }
+
+  /* ARTISTAS / GALLERY */
+  .artists{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
   .gallery__item img{ height: 240px; }
+
+  /* REVIEWS */
+  .reviewsBar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reviewsBar__actions{
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .reviewsGrid{ grid-template-columns: 1fr; }
+
+  /* CONTATO / MAPA */
+  .contact__grid{ grid-template-columns: 1fr; }
+  .contact__card{ padding: 16px; }
+  .map iframe{ min-height: 300px; }
+
+  /* LOCALIZAÇÃO: empilha tudo */
+  #localizacao .contact__grid{ grid-template-columns: 1fr; }
+  #localizacao .contact__cards,
+  #localizacao .map{ grid-column: 1 / -1; }
+  #localizacao .map iframe{ min-height: 300px; }
+
+  /* CTA */
+  .cta-final__inner{ padding: 20px; }
+
+  /* FOOTER: centraliza melhor e evita quebra feia */
+  .footer__inner{
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* LIGHTBOX: melhora toque sem estourar largura */
+  .lightbox__content{ padding: 14px; }
+  .lightbox__figure{
+    width: min(980px, 94vw);
+    height: min(74vh, 640px);
+  }
+  .lightbox__nav--prev{ left: 10px; }
+  .lightbox__nav--next{ right: 10px; }
+  .lightbox__close{ top: 10px; right: 10px; }
+
+  /* Whats flutuante: um pouco menor no mobile (sem mudar identidade) */
+  .whatsapp-float{
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 12px;
+  }
+}
+
+
+/* =========================
+   DESKTOP: 992px → 1199.98px
+   (base já cobre — mantido “exatamente como está”)
+   ========================= */
+@media (min-width: 992px) and (max-width: 1199.98px){
+  /* Intencionalmente vazio para manter o layout desktop igual */
+}
+
+
+/* =========================
+   EXTRA LARGE: >= 1200px
+   (base já cobre)
+   ========================= */
+@media (min-width: 1200px){
+  /* Intencionalmente vazio */
 }
