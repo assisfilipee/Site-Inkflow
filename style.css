@@ -889,6 +889,32 @@ section[id]{ scroll-margin-top: calc(var(--nav-h) + 18px); }
 /* =========================
    MOBILE: até 575.98px
    ========================= */
+
+@media (max-width: 575.98px){
+
+  /* ✅ aumenta a altura “reservada” pro header fixo no mobile */
+  :root{
+    --pad: 16px;
+    --nav-h: 118px; /* era 70px — agora cobre logo + menu quebrado */
+  }
+
+  /* ✅ garante que o header não “corte” o conteúdo interno */
+  .header{ height: auto; }
+  .header__inner{ padding: 10px 0; }
+
+  /* ✅ evita apertar demais e melhora encaixe no Samsung */
+  .nav__menu{
+    gap: 10px;
+    padding-inline: 8px;
+    padding-bottom: 8px;
+  }
+
+  .nav__logo{
+    padding: 6px 0 4px;
+  }
+}
+
+
 @media (max-width: 575.98px){
 
   /* ✅ aumenta respiro lateral, evita conteúdo colado */
